@@ -1,6 +1,6 @@
 (ns style.core
-  (:gen-class))
+  (:gen-class)
+  (:require [clojure.string :as str]))
 
 (defn frequency-task [sentence]
-  (let [sentence-to-lower-case (.toLowerCase sentence)]
-    sentence-to-lower-case))
+  (str/split (str/lower-case sentence) #" "))
