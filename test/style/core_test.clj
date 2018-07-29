@@ -26,14 +26,14 @@
           expected-result '({:word "i" :count 1} {:word "am" :count 2} {:word "you" :count 3})]
       (is (= (sort-by :count result) (sort-by :count expected-result)))))
 
-  (testing "Given a string will return a map with its unique words and count as keys"
-    (let [sentence "I am am you you you"
-          result (frequency-task sentence)
-          expected-result '({:word "i" :count 1} {:word "am" :count 2} {:word "you" :count 3})]
-      (is (= (sort-by :count result) (sort-by :count expected-result)))))
-
   (testing "Given a collection of maps will format its unique words & count"
     (let [mapped-sentence '({:word "i" :count 1} {:word "am" :count 2} {:word "you" :count 3})
           result (format mapped-sentence)
           expected-result '("i - 1\n" "am - 2\n" "you - 3\n")]
+      (is (= result expected-result))))
+
+  (testing "Given a string will strings of its unique words & count"
+    (let [sentence "I am am you you you"
+          result (frequency-task sentence)
+          expected-result '("am - 2\n" "i - 1\n" "you - 3\n")]
       (is (= result expected-result)))))

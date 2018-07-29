@@ -27,6 +27,6 @@
   (let [words (lower-case-words sentence)
         unique-words (unique-words words)
         mapped-sentence (map-words-and-count unique-words sentence)]
-    mapped-sentence))
+    (sort (format mapped-sentence))))
 
 
