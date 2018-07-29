@@ -19,6 +19,10 @@
   [sentence]
   (set sentence))
 
+(defn format
+  [mapped-sentence]
+  (map #(str (:word %1) " - " (:count %1) "\n") mapped-sentence))
+
 (defn frequency-task [sentence]
   (let [words (lower-case-words sentence)
         unique-words (unique-words words)
